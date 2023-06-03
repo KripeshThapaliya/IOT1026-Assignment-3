@@ -6,9 +6,14 @@ namespace AssignmentTest
     public class AssignmentTests
     {
         [TestMethod]
-        public void DummyTest()
+        public void ConstructorTest()
         {
-            Assert.AreNotSame(1, 2);
+            const int PackMaxItems = 10;
+            const float PackMaxVolume = 20;
+            const float PackMaxWeight = 20;
+            Pack pack = new(PackMaxItems, PackMaxVolume, PackMaxWeight);
+
+            Assert.AreEqual(pack._maxCount = PackMaxItems);
         }
     }
 }

@@ -5,9 +5,14 @@ class Pack
     private InventoryItem[] _items; // You can use another data structure here if you prefer.
     // You may need another private member variable if you use an array data structure.
 
+    private int _maxCount;
+    private float _maxVolume;
+    private float _maxweight;
+
     public Pack(int maxCount, float maxVolume, float maxWeight)
     {
-        throw new NotImplementedException();
+        _maxCount = maxCount;
+
     }
 
     public bool Add(InventoryItem item)
