@@ -8,7 +8,6 @@ static class PackTester
         do
         {
             Console.WriteLine(pack); // See output image for what this should display
-
             Console.WriteLine("What do you want to add?");
             Console.WriteLine("1 - Arrow");
             Console.WriteLine("2 - Bow");
@@ -17,14 +16,13 @@ static class PackTester
             Console.WriteLine("5 - Food");
             Console.WriteLine("6 - Sword");
             Console.WriteLine("7 - Gather your pack and venture forth");
-
             try
             {
                 // int.TryParse should be preferred
                 // I am using this method to demonstrate exception handling
                 int choice = Convert.ToInt32(Console.ReadLine());
                 // Can use _ -> for a default case to possibly avoid exception handling
-                InventoryItem newItem = choice switch
+                if (!pack.Add(choice switch
                 {
                     1 => new Arrow(),
                     2 => new Bow(),
@@ -32,8 +30,7 @@ static class PackTester
                     4 => new Water(),
                     5 => new Food(),
                     6 => new Sword()
-                };
-                if (!pack.Add(newItem))
+                }))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Could not fit this item into the pack.");
